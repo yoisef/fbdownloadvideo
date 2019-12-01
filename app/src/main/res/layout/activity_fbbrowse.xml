@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/containerfb"
+    android:layout_height="match_parent"
+    tools:context="testelbasha.video.fb.fbbrowse">
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:id="@+id/pagerfb"
+        android:layout_height="match_parent"/>
+
+</FrameLayout>
