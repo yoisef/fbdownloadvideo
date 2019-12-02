@@ -6,6 +6,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
+
+import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import testelbasha.video.fb.DBHelper;
@@ -135,7 +137,9 @@ public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.Re
             public void onClick(View v) {
                 Intent shareIntent = new Intent();
                 shareIntent.setAction(Intent.ACTION_SEND);
-                shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(getItem(holder.getPosition()).getFilePath())));
+                Uri photoURI = FileProvider.getUriForFile(mContext, mContext.getApplicationContext().getPackageName() + ".provider", new File(getItem(holder.getPosition()).getFilePath()));
+
+                shareIntent.putExtra(Intent.EXTRA_STREAM,photoURI);
                 shareIntent.setType("video/*");
                 shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 mContext.startActivity(Intent.createChooser(shareIntent, "Share video using"));

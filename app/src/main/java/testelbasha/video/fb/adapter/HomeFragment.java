@@ -19,6 +19,11 @@ import android.os.Handler;
 import android.provider.Settings;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
@@ -53,6 +58,7 @@ public class HomeFragment extends Fragment  {
     private ProgressBar mprogress;
     private SwipeRefreshLayout mySwipeRefreshLayout;
     private int isInternetConnected=1;
+    public InterstitialAd mInterstitialAd;
     View mainView;
     private static final String ARG_POSITION = "position";
     private static final int PERMISSION_CALLBACK_CONSTANT = 101;
@@ -73,6 +79,9 @@ public class HomeFragment extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        loadinterstial();
+        interstiallistener();
         mainView=inflater.inflate(R.layout.fragment_home,container,false);
         setRetainInstance(true);
         mySwipeRefreshLayout = (SwipeRefreshLayout)mainView.findViewById(R.id.swipeContainer);
@@ -304,6 +313,58 @@ public class HomeFragment extends Fragment  {
         });
         return mainView;
     }
+    public  void  loadinterstial()
+    {
+        MobileAds.initialize(getActivity(),
+                "ca-app-pub-9508195472439107~6822869935");
+
+        mInterstitialAd = new InterstitialAd(getActivity());
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+
+    }
+
+    public void interstiallistener()
+    {
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                // Code to be executed when an ad request fails.
+
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+            }
+
+            @Override
+            public void onAdOpened() {
+                // Code to be executed when the ad is displayed.
+            }
+
+            @Override
+            public void onAdClicked() {
+                // Code to be executed when the user clicks on an ad.
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+            }
+
+            @Override
+            public void onAdClosed() {
+                // Code to be executed when the interstitial ad is closed.
+
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+            }
+        });
+
+    }
     public void getUrlfromUrlDownload(String url)
     {
         mWebview.loadUrl(url);
@@ -460,6 +521,16 @@ public class HomeFragment extends Fragment  {
                 finalurl=finalurl.replaceAll("%3F","?");
                 finalurl=finalurl.replaceAll("%3D","=");
                 finalurl=finalurl.replaceAll("%26","&");
+               getActivity().runOnUiThread(new Runnable() {
+                    @Override public void run() {
+                        if (mInterstitialAd.isLoaded()) {
+                            mInterstitialAd.show();
+                        } else {
+                            Log.d("TAG", "The interstitial wasn't loaded yet.");
+                        }
+                    }
+                });
+
                 downloadvideo(finalurl);
             }
 
@@ -506,7 +577,7 @@ public class HomeFragment extends Fragment  {
         alertDialog.show();
     }
     public void downloadvideo(String pathvideo)
-    {
+        {
         if(pathvideo.contains(".mp4"))
         {
             File directory = new File(Environment.getExternalStorageDirectory()+File.separator+"Facebook Videos");

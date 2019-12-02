@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import testelbasha.video.fb.PrefManager;
 import testelbasha.video.fb.R;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -26,6 +33,8 @@ public class UrlDownloadFragment extends Fragment {
     ImageView imageButton;
     EditText editText;
     HomeFragment homeFragment;
+    public InterstitialAd mInterstitialAd;
+    public AdView mAdView;
     private PrefManager pref;
     private static final String ARG_POSITION = "position";
     public static UrlDownloadFragment newInstance(int position) {
@@ -39,6 +48,9 @@ public class UrlDownloadFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        loadinterstial();
+        interstiallistener();
 
         View rootView = inflater.inflate(R.layout.urldownload, container, false);
         homeFragment=new HomeFragment();
@@ -54,6 +66,16 @@ public class UrlDownloadFragment extends Fragment {
                 }
                 else
                 {
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override public void run() {
+                            if (mInterstitialAd.isLoaded()) {
+                                mInterstitialAd.show();
+                            } else {
+                                Log.d("TAG", "The interstitial wasn't loaded yet.");
+                            }
+                        }
+                    });
+
                     downloadVideo(editText.getText().toString());
                 }
             }
@@ -61,6 +83,58 @@ public class UrlDownloadFragment extends Fragment {
         return rootView;
     }
 
+    public  void  loadinterstial()
+    {
+        MobileAds.initialize(getActivity(),
+                "ca-app-pub-9508195472439107~6822869935");
+
+        mInterstitialAd = new InterstitialAd(getActivity());
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+
+    }
+
+    public void interstiallistener()
+    {
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                // Code to be executed when an ad request fails.
+
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+            }
+
+            @Override
+            public void onAdOpened() {
+                // Code to be executed when the ad is displayed.
+            }
+
+            @Override
+            public void onAdClicked() {
+                // Code to be executed when the user clicks on an ad.
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+            }
+
+            @Override
+            public void onAdClosed() {
+                // Code to be executed when the interstitial ad is closed.
+
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+            }
+        });
+
+    }
     private void downloadVideo(String pathvideo) {
         /*if (!(pathvideo.contains("fbcdn")))
         {

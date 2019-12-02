@@ -14,7 +14,7 @@ import testelbasha.video.fb.adapter.HomeFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class fbbrowse extends AppCompatActivity {
+public class fbbrowse extends BaseActivity {
 
 
     HomeFragment homeFragment;
@@ -24,6 +24,10 @@ public class fbbrowse extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fbbrowse);
+        loadinterstial();
+        interstiallistener();
+        intilizebannerad();
+        bannerlisener();
         homeFragment = new HomeFragment();
 
         myviewpager = findViewById(R.id.pagerfb);

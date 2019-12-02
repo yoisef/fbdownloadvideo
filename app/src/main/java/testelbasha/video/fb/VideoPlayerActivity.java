@@ -18,7 +18,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 
-public class VideoPlayerActivity extends Activity implements SurfaceHolder.Callback, MediaPlayer.OnPreparedListener, VideoControllerView.MediaPlayerControl {
+public class VideoPlayerActivity extends BaseActivity implements SurfaceHolder.Callback, MediaPlayer.OnPreparedListener, VideoControllerView.MediaPlayerControl {
     private static boolean mFullScreen = true;
     SurfaceView videoSurface;
     static MediaPlayer player;
@@ -30,6 +30,10 @@ public class VideoPlayerActivity extends Activity implements SurfaceHolder.Callb
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_player);
+        loadinterstial();
+        interstiallistener();
+        intilizebannerad();
+        bannerlisener();
 
         videoSurface = (SurfaceView) findViewById(R.id.videoSurface);
         SurfaceHolder videoHolder = videoSurface.getHolder();
@@ -108,6 +112,12 @@ public class VideoPlayerActivity extends Activity implements SurfaceHolder.Callb
         }
         videoSurface.setLayoutParams(lp);
         controller.setAnchorView((FrameLayout) findViewById(R.id.videoSurfaceContainer));
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+
         player.start();
     }
     // End MediaPlayer.OnPreparedListener
@@ -176,6 +186,11 @@ public class VideoPlayerActivity extends Activity implements SurfaceHolder.Callb
 
     @Override
     public void start() {
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
         player.start();
     }
 
