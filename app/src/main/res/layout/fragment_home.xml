@@ -5,34 +5,72 @@
     android:layout_height="match_parent"
     android:id="@+id/coordinator"
    >
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipeContainer"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@color/pink"
+            android:padding="10dp"
 
-    <WebView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/webView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:scrollIndicators="top|left|bottom|start|end|right"
-        android:nestedScrollingEnabled="true" />
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="0dp"
+                android:id="@+id/searchedit"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/gray"
+                android:singleLine="true"
+                android:layout_marginStart="10dp"
+                android:paddingStart="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingEnd="5dp"
+                android:background="@drawable/editbutton"
+                android:layout_weight="1"
+                android:layout_height="50dp"/>
+            <ImageButton
+                android:layout_width="50dp"
+                android:id="@+id/gosearchbut"
+                android:background="@drawable/circle"
+                android:src="@drawable/searchicon"
+                android:layout_height="50dp"/>
+
+        </LinearLayout>
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:progressBackgroundTint="#ffea04"
+            android:visibility="visible" />
 
 
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/progressBar"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:progressBackgroundTint="#ffea04"
-        android:visibility="visible" />
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <WebView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/webView"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:scrollIndicators="top|left|bottom|start|end|right"
+                android:nestedScrollingEnabled="true" />
+
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

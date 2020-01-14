@@ -6,7 +6,7 @@
     android:id="@+id/containerfb"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context="testelbasha.video.fb.fbbrowse">
+    tools:context="videodownloader.FBVideos.fbbrowse">
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
         android:id="@+id/pagerfb"
@@ -21,6 +21,6 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"/>
+        ads:adUnitId="ca-app-pub-9508195472439107/2071333603"/>
 
 </LinearLayout>

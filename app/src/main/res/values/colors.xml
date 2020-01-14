@@ -11,7 +11,9 @@
     <color name="NightRider">#303030</color>
     <color name="tab_background_selected">#39a285</color>
     <color name="red">#ff0000</color>
-    <color name="pink">#E35075</color>
+    <color name="pink">#4069AC</color>
     <color name="blue">#4069AC</color>
     <color name="white">#ffffff</color>
+    <color name="gray">#949191</color>
+    <color name="black">#000000</color>
 </resources>

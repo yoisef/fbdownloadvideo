@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Test ElBasha</string>
+    <string name="app_name">FBVideosHere</string>
     <string name="buy_add_free_version">Buy Ad Free Version</string>
     <string name="MoreApps">More Apps </string>
     <string name="Share_This_App">Share This App</string>
@@ -21,6 +21,29 @@
     <string name="dialog_action_yes">Yes</string>
     <string name="dialog_action_no">No</string>
     <string name="send_to">Send to</string>
+    <string name="gottofb">Go To FaceBook</string>
+    <string name="explantion">Explanation How To Download Videos</string>
+    <string name="fromourapp">From Our App</string>
+    <string name="rateapp">Rate App</string>
+    <string name="setting">Settings</string>
+    <string name="home">Home</string>
+    <string name="videolist">Video List</string>
+    <string name="pastelink">Paste Link</string>
+    <string name="askdownload">Do you Really want to Save Video ?</string>
+    <string name="savevideo">Save Video?</string>
+    <string name="copyurl">Copy Url</string>
+    <string name="watch">Watch</string>
+    <string name="download">Download</string>
+    <string name="cancel">Cancel</string>
+    <string name="downloadoption">Download Option</string>
+    <string name="fromfaebook">From Facebook App</string>
     <string name="banner_home_footer">ca-app-pub-0664570763252260/3326522424</string>
     <string name="interstitial_full_screen">ca-app-pub-0664570763252260/1769900428</string>
+
+    <string-array name="language">
+        <item>Choose Language</item>
+        <item>العربية</item>
+        <item>English</item>
+
+    </string-array>
 </resources>

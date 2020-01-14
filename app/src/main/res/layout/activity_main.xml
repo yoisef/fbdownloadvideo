@@ -41,7 +41,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_margin="10dp"
-        android:text="Go to FB"
+        android:text="@string/gottofb"
         android:id="@+id/browsefacebook"
         android:textSize="22dp"
         android:textStyle="bold"
@@ -58,5 +58,5 @@
     android:layout_centerHorizontal="true"
     android:layout_alignParentBottom="true"
     ads:adSize="BANNER"
-    ads:adUnitId="ca-app-pub-3940256099942544/6300978111"/>
+    ads:adUnitId="ca-app-pub-9508195472439107/2071333603"/>
 </LinearLayout>

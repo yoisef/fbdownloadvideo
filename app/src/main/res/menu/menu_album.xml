@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
     <item
         android:id="@+id/menu_rate"
-        android:title="Rate The App"
+        android:title="@string/rateapp"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="never"/>
     <item
@@ -12,15 +12,16 @@
         android:orderInCategory="100"
         android:title="@string/clear_app_data"
         app:showAsAction="never" />
-    <item
-        android:id="@+id/MoreApps"
-        android:orderInCategory="100"
-        android:title="@string/MoreApps"
-        app:showAsAction="never" />
+
     <item
         android:id="@+id/Share_This_App"
         android:orderInCategory="100"
         android:title="@string/Share_This_App"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/settingslang"
+        android:orderInCategory="100"
+        android:title="@string/setting"
         app:showAsAction="never" />
     <item
         android:id="@+id/About"

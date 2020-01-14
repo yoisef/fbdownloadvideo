@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">فيديوهات فيسبوك هنا</string>
+    <string name="buy_add_free_version">Buy Ad Free Version</string>
+    <string name="MoreApps">More Apps </string>
+    <string name="Share_This_App">مشاركة التطبيق</string>
+    <string name="About">عنا</string>
+    <string name="clear_app_data">حذف بيانات التطبيق</string>
+    <string name="description">Media Controls</string>
+    <string name="toast_file_delete">%1$s حذفت بنجاح</string>
+    <string name="toast_file_exists">  موجود من فضلك اختار فيديو اخر%1$sهذا الملف</string>
+    <string name="dialog_title_delete">تأكيد الحذف ....</string>
+    <string name="dialog_text_delete">تاكيد حذف الملف</string>
+    <string name="dialog_title_options">خيارات</string>
+    <string name="dialog_file_share">مشاركة الملف</string>
+    <string name="dialog_file_rename">اعادة تسمية الملف</string>
+    <string name="dialog_title_rename">اعادة تسمية الملف</string>
+    <string name="dialog_file_delete">حذف الملف</string>
+    <string name="dialog_action_cancel">إلغاء</string>
+    <string name="dialog_action_ok">موافق</string>
+    <string name="dialog_action_yes">نعم</string>
+    <string name="dialog_action_no">لا</string>
+    <string name="send_to">إرسال إلي</string>
+    <string name="gottofb">أذهب الي الفيسبوك</string>
+    <string name="explantion">شرح كيفية تحميل فيديوهات الفيسبوك</string>
+    <string name="fromourapp">من تطبيقنا</string>
+    <string name="fromfaebook">من تطبيق الفيس بوك</string>
+    <string name="rateapp">تقييم التطبيق</string>
+    <string name="setting">الإعدادات</string>
+    <string name="home">الرئيسية</string>
+    <string name="videolist">قائمة الفيديوهات</string>
+    <string name="pastelink">لصق الرابط</string>
+    <string name="askdownload">هل تريد فعلا حفظ الفيديو ؟</string>
+    <string name="savevideo">حفظ الفيديو ؟</string>
+    <string name="copyurl">نسخ الرابط</string>
+    <string name="watch">مشاهدة</string>
+    <string name="download">تحميل</string>
+    <string name="cancel">إلغاء</string>
+    <string name="downloadoption">خيارات التحميل</string>
+    <string name="banner_home_footer">ca-app-pub-0664570763252260/3326522424</string>
+    <string name="interstitial_full_screen">ca-app-pub-0664570763252260/1769900428</string>
+
+    <string-array name="language">
+        <item>أختر اللغة</item>
+        <item>العربية</item>
+        <item>English</item>
+
+    </string-array>
+</resources>
